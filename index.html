@@ -11,12 +11,38 @@
       crossorigin="anonymous"
     />
     <link href="./assests/css/style.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Weather Dashboard</title>
   </head>
   <body>
+    <nav>
+      <h1 class="text-center bg-dark py-4 text-light">Weather Dashboard</h1>
+    </nav>
 
-<h1>Hello World</h1>
+    <main class="container-fluid row">
+      <aside class="form-group col-3 bg-secondary mr-5">
+        <div>
+          <h3>Search for a City</h3>
+          <input
+            type="search"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </aside>
+        
+        <section class="col-8 border">
+            <h1>Atlanta <span>(03/29/2021)</span></h1>
+            <p>Temperature: <span>66.7</span></p>
+            <p>Humidity: <span>28%</span></p>
+            <p>Wind Speed: <span>200 mph</span></p>
+            <p>UV Index: <span class="btn-danger p-1 rounded">10</span></p>
+        </section>
+        
 
+    </main>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
