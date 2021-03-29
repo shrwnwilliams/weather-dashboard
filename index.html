@@ -22,30 +22,26 @@
       <aside class="form-group col-3 bg-secondary mr-5">
         <form id="city-search">
           <h3>Search for a City</h3>
-          <input
-            type="search"
-            class="form-control"
-            id="city-search-input"
-          />
+          <input type="search" class="form-control" id="city-search-input" />
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    </aside>
-        
-        <section class="col-8 border">
-            <h1>Atlanta <span>(03/29/2021)</span></h1>
-            <p>Temperature: <span>66.7</span></p>
-            <p>Humidity: <span>28%</span></p>
-            <p>Wind Speed: <span>200 mph</span></p>
-            <p>UV Index: <span class="btn-danger p-1 rounded">10</span></p>
-        </section>
-        
+      </aside>
 
+      <section class="col-8 border d-none" id="weather-display">
+        <h1 class="row" id="city-name">March</h1>
+        <h1 class="row" id="todays-date">(04/01/2026)</h1>
+        <p>Temperature: <span id="current-temperature"></span></p>
+        <p>Humidity: <span id="current-humidity">28%</span></p>
+        <p>Wind Speed: <span id="current-wind">200 mph</span></p>
+        <p>UV Index: <span id="current-uv">10</span></p>
+      </section>
     </main>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assests/js/script.js"></script>
   </body>
 </html>
