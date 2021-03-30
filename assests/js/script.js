@@ -27,7 +27,6 @@ function getLatLong() {
       console.log(data.coord.lat);
       console.log(data.coord.lon);
       getCityWeather(data.coord.lat, data.coord.lon);
-
     });
 }
 
@@ -39,22 +38,24 @@ var getCityWeather = function (lat, lon) {
     lon +
     "&units=imperial&appid=49e97d128aa0b52b9299b5b1b5a52107";
 
-    fetch(requestWeatherUrl).then(function(response){
+  fetch(requestWeatherUrl)
+    .then(function (response) {
       if (response.ok) return response.json();
-    }).then(function(data){
+    })
+    .then(function (data) {
       console.log(data);
       currentTemp.text(data.current.temp + "°F");
       currentHumidity.text(data.current.humidity + "%");
       currentWind.text(data.current.wind_speed + " mph");
-      if (data.current.uvi >= 7){
+      if (data.current.uvi >= 7) {
         currentUvIndex.addClass("btn btn-danger");
       } else if (data.current.uvi <= 2) {
         currentUvIndex.addClass("btn btn-success");
       } else {
         currentUvIndex.addClass("btn btn-warning");
       }
-      currentUvIndex.text(data.current.uvi)
-    })
+      currentUvIndex.text(data.current.uvi);
+    });
 };
 
 formInputEl.on("submit", function (event) {
@@ -62,7 +63,8 @@ formInputEl.on("submit", function (event) {
   getLatLong();
   weatherDisplay.removeClass("d-none");
   currentCity.text(userCityInput.val());
-  var searchItem = $("<div>");
+  var searchItem = $("<a>");
+  searchItem.addClass("list-group-item");
   searchItem.attr("href", "https://google.com");
   searchItem.text(userCityInput.val() + "\n");
   pastSearchList.append(searchItem);
