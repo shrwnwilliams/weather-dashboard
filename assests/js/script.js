@@ -10,9 +10,32 @@ $(document).ready(function () {
   var currentWind = $("#current-wind");
   var currentUvIndex = $("#current-uv");
   var pastSearchList = $("#past-searches");
+
   var dayOneHigh = $("#1-day-high");
   var dayOneLow = $("#1-day-low");
   var dayOneHumidity = $("#1-day-humid");
+  var dayOneDisplay = $("#weather-disp-1");
+
+  var dayTwoHigh = $("#2-day-high");
+  var dayTwoLow = $("#2-day-low");
+  var dayTwoHumidity = $("#2-day-humid");
+  var dayTwoDisplay = $("#weather-disp-2");
+
+  var dayThreeHigh = $("#3-day-high");
+  var dayThreeLow = $("#3-day-low");
+  var dayThreeHumidity = $("#3-day-humid");
+  var dayThreeDisplay = $("#weather-disp-3");
+
+  var dayFourHigh = $("#4-day-high");
+  var dayFourLow = $("#4-day-low");
+  var dayFourHumidity = $("#4-day-humid");
+  var dayFourDisplay = $("#weather-disp-4");
+
+  var dayFiveHigh = $("#5-day-high");
+  var dayFiveLow = $("#5-day-low");
+  var dayFiveHumidity = $("#5-day-humid");
+  var dayFiveDisplay = $("#weather-disp-5");
+
   var today = moment();
   var searchHistory = JSON.parse(localStorage.getItem("history")) || [];
 
@@ -57,9 +80,9 @@ $(document).ready(function () {
     userCityInput.val("");
   };
   // searchItem.id = searchValue;
-  pastSearchList.on("click", "li", function(){
+  pastSearchList.on("click", "li", function () {
     getLatLong($(this).text());
-  })
+  });
 
   var getCityWeather = function (lat, lon) {
     var requestWeatherUrl =
@@ -88,9 +111,8 @@ $(document).ready(function () {
         currentUvIndex.text(data.current.uvi);
       });
   };
-  
 
-  var getFiveDay = function(lat, lon) {
+  var getFiveDay = function (lat, lon) {
     var requestWeatherUrl =
       "https://api.openweathermap.org/data/2.5/onecall?lat=" +
       lat +
@@ -98,25 +120,38 @@ $(document).ready(function () {
       lon +
       "&units=imperial&exclude=hourly,minutely&appid=49e97d128aa0b52b9299b5b1b5a52107";
 
-  fetch(requestWeatherUrl).then(function (response){
-    if (response.ok) return response.json();
-  }).then(function(data) {
-    console.log(data);
-    for (var i = 0; i < 4; i++){
-      var nextDay = $("<div>");
-      var weatherImg = $("<img>");
-      weatherImg.attr("src", "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon +"@2x.png");
-      // formInputEl.append(weatherImg);
+    fetch(requestWeatherUrl)
+      .then(function (response) {
+        if (response.ok) return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        dayOneHigh.text(data.daily[0].temp.max + "°F");
+        dayOneLow.text(data.daily[0].temp.min + "°F");
+        dayOneHumidity.text(data.daily[0].humidity + "%");
+        dayOneDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon + "@2x.png");
+        
+        dayTwoHigh.text(data.daily[1].temp.max + "°F");
+        dayTwoLow.text(data.daily[1].temp.min + "°F");
+        dayTwoHumidity.text(data.daily[1].humidity + "%");
+        dayTwoDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + "@2x.png");
 
-      dayOneHigh.text(data.daily[i].temp.max + "°F");
-      dayOneLow.text(data.daily[i].temp.min + "°F");
-      dayOneHumidity.text(data.daily[i].humidity + "%")
-    }
-  })
+        dayThreeHigh.text(data.daily[2].temp.max + "°F");
+        dayThreeLow.text(data.daily[2].temp.min + "°F");
+        dayThreeHumidity.text(data.daily[2].humidity + "%");
+        dayThreeDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[2].weather[0].icon + "@2x.png");
 
+        dayFourHigh.text(data.daily[3].temp.max + "°F");
+        dayFourLow.text(data.daily[3].temp.min + "°F");
+        dayFourHumidity.text(data.daily[3].humidity + "%");
+        dayFourDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[3].weather[0].icon + "@2x.png");
 
+        dayFiveHigh.text(data.daily[4].temp.max + "°F");
+        dayFiveLow.text(data.daily[4].temp.min + "°F");
+        dayFiveHumidity.text(data.daily[4].humidity + "%");
+        dayFiveDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[4].weather[0].icon + "@2x.png");
+      });
   };
-
 
   formInputEl.on("submit", function (event) {
     event.preventDefault();
