@@ -25,16 +25,51 @@
           <input type="search" class="form-control" id="city-search-input" />
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <div id="past-searches"></div>
+        <ul id="past-searches"></ul>
       </aside>
 
       <section class="col-8 border d-none" id="weather-display">
-        <h1 class="row" id="city-name">March</h1>
-        <h1 class="row" id="todays-date">(04/01/2026)</h1>
+        <h1 class="row" id="city-name"></h1>
+        <h1 class="row" id="todays-date"></h1>
         <p>Temperature: <span id="current-temperature"></span></p>
-        <p>Humidity: <span id="current-humidity">28%</span></p>
-        <p>Wind Speed: <span id="current-wind">200 mph</span></p>
-        <p>UV Index: <span id="current-uv">10</span></p>
+        <p>Humidity: <span id="current-humidity"></span></p>
+        <p>Wind Speed: <span id="current-wind"></span></p>
+        <p>UV Index: <span id="current-uv"></span></p>
+      </section>
+
+      <h1>5-Day Forecast:</h1>
+      <section class="col-8 row" id="5-day-forecast">
+        <div class="btn btn-primary mx-3 text-left" id="1-day">
+          <p>Tomorrow:</p>
+          <img>
+          <p>High Temp: <span>50</span></p>
+          <p>Low Temp :<span>100</span></p>
+          <p>Humidity:</p>
+        </div>
+        <div class="btn btn-primary mx-3 text-left" id="2-day">
+          <p>Tomorrow:</p>
+          <img>
+          <p>Temp: <span></span></p>
+          <p>Humidity:</p>
+        </div>
+        <div class="btn btn-primary mx-3 text-left" id="3-day">
+          <p>Tomorrow:</p>
+          <img>
+          <p>Temp: <span></span></p>
+          <p>Humidity:</p>
+        </div>
+        <div class="btn btn-primary mx-3 text-left" id="4-day">
+          <p>Tomorrow:</p>
+          <img>
+          <p>Temp: <span></span></p>
+          <p>Humidity:</p>
+        </div>
+        <div class="btn btn-primary mx-3 text-left" id="5-day">
+          <p>Tomorrow:</p>
+          <img>
+          <p>Temp: <span></span></p>
+          <p>Humidity:</p>
+        </div>
       </section>
     </main>
     <script
