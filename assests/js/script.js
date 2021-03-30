@@ -62,9 +62,9 @@ formInputEl.on("submit", function (event) {
   getLatLong();
   weatherDisplay.removeClass("d-none");
   currentCity.text(userCityInput.val());
-  var searchItem = $("<a>");
+  var searchItem = $("<div>");
   searchItem.attr("href", "https://google.com");
-  searchItem.text(userCityInput.val());
+  searchItem.text(userCityInput.val() + "\n");
   pastSearchList.append(searchItem);
 });
 
