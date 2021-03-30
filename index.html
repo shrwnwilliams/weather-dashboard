@@ -19,7 +19,7 @@
     </nav>
 
     <main class="container-fluid row">
-      <aside class="form-group col-3 bg-secondary mr-5">
+      <aside class="form-group col-3 bg-secondary mr-5 h-100">
         <form id="city-search">
           <h3>Search for a City</h3>
           <input type="search" class="form-control" id="city-search-input" />
@@ -37,14 +37,14 @@
         <p>UV Index: <span id="current-uv"></span></p>
       </section>
 
-      <h1>5-Day Forecast:</h1>
-      <section class="col-8 row" id="5-day-forecast">
+      <section class="col-12 row d-none float-right justify-content-end border" id="5-day-forecast">
+        <h1>5-Day Forecast:</h1>
         <div class="btn btn-primary mx-3 text-left" id="1-day">
           <p>Tomorrow:</p>
           <img>
-          <p>High Temp: <span>50</span></p>
-          <p>Low Temp :<span>100</span></p>
-          <p>Humidity:</p>
+          <p>High Temp: <span id="1-day-high"></span></p>
+          <p>Low Temp :<span id="1-day-low"></span></p>
+          <p>Humidity: <span id="1-day-humid"></span></p>
         </div>
         <div class="btn btn-primary mx-3 text-left" id="2-day">
           <p>Tomorrow:</p>
