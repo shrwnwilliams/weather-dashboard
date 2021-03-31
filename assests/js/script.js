@@ -129,33 +129,58 @@ $(document).ready(function () {
         dayOneHigh.text(data.daily[0].temp.max + "°F");
         dayOneLow.text(data.daily[0].temp.min + "°F");
         dayOneHumidity.text(data.daily[0].humidity + "%");
-        dayOneDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon + "@2x.png");
-        
+        dayOneDisplay.attr(
+          "src",
+          "http://openweathermap.org/img/wn/" +
+            data.daily[0].weather[0].icon +
+            "@2x.png"
+        );
+
         dayTwoHigh.text(data.daily[1].temp.max + "°F");
         dayTwoLow.text(data.daily[1].temp.min + "°F");
         dayTwoHumidity.text(data.daily[1].humidity + "%");
-        dayTwoDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + "@2x.png");
+        dayTwoDisplay.attr(
+          "src",
+          "http://openweathermap.org/img/wn/" +
+            data.daily[1].weather[0].icon +
+            "@2x.png"
+        );
 
         dayThreeHigh.text(data.daily[2].temp.max + "°F");
         dayThreeLow.text(data.daily[2].temp.min + "°F");
         dayThreeHumidity.text(data.daily[2].humidity + "%");
-        dayThreeDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[2].weather[0].icon + "@2x.png");
+        dayThreeDisplay.attr(
+          "src",
+          "http://openweathermap.org/img/wn/" +
+            data.daily[2].weather[0].icon +
+            "@2x.png"
+        );
 
         dayFourHigh.text(data.daily[3].temp.max + "°F");
         dayFourLow.text(data.daily[3].temp.min + "°F");
         dayFourHumidity.text(data.daily[3].humidity + "%");
-        dayFourDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[3].weather[0].icon + "@2x.png");
+        dayFourDisplay.attr(
+          "src",
+          "http://openweathermap.org/img/wn/" +
+            data.daily[3].weather[0].icon +
+            "@2x.png"
+        );
 
         dayFiveHigh.text(data.daily[4].temp.max + "°F");
         dayFiveLow.text(data.daily[4].temp.min + "°F");
         dayFiveHumidity.text(data.daily[4].humidity + "%");
-        dayFiveDisplay.attr("src", "http://openweathermap.org/img/wn/" + data.daily[4].weather[0].icon + "@2x.png");
+        dayFiveDisplay.attr(
+          "src",
+          "http://openweathermap.org/img/wn/" +
+            data.daily[4].weather[0].icon +
+            "@2x.png"
+        );
       });
   };
 
   formInputEl.on("submit", function (event) {
     event.preventDefault();
-    
+
     getSearchValue();
     weatherDisplay.removeClass("d-none");
     fiveDayDisplay.removeClass("d-none");
