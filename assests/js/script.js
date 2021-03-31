@@ -58,7 +58,7 @@ $(document).ready(function () {
         // console.log(data.coord.lon);
         getFiveDay(data.coord.lat, data.coord.lon);
         getCityWeather(data.coord.lat, data.coord.lon);
-        if (searchHistory.indexOf(city) === -1) {
+        if (searchHistory.index(city) === -1) {
           searchHistory.push(city);
           localStorage.setItem("history", JSON.stringify(searchHistory));
           saveCity(city);
@@ -155,14 +155,12 @@ $(document).ready(function () {
 
   formInputEl.on("submit", function (event) {
     event.preventDefault();
-    // getLatLong();
+    
     getSearchValue();
     weatherDisplay.removeClass("d-none");
     fiveDayDisplay.removeClass("d-none");
   });
-
   // storing past search list items into local storage
-  // finding different end point for 5 day forecast
 
   // var weatherImg = $("<img>");
   // weatherImg.attr("src", "http://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon +"@2x.png");
